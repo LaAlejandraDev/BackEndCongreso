@@ -6,12 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
-    host: process.env.MYSQLHOST,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE,
-});
+const db = mysql.createConnection("mysql://root:eiPBxGRFNZWwIuqefwPnOnOdabGpUhur@gondola.proxy.rlwy.net:35165/railway");
 
 db.connect((err) => {
     if (err) {
@@ -71,5 +66,5 @@ app.post("/api/registro", (req, res) => {
 
 
 app.listen(3001, () => {
-    console.log("Servidor listo en https://backendcongreso-1.onrender.com");
+    console.log("Servidor listo en https://backendcongreso-2.onrender.com");
 });
