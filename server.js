@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "congresoUTL",
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
 });
 
 db.connect((err) => {
@@ -70,6 +70,6 @@ app.post("/api/registro", (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log("Servidor listo en http://localhost:3000");
+app.listen(3001, () => {
+    console.log("Servidor listo en https://backendcongreso-1.onrender.com");
 });
